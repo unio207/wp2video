@@ -437,6 +437,8 @@ def gui():
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
+        if sys.stdout:  # titles can have characters the console code page can't print
+            sys.stdout.reconfigure(encoding="utf-8", errors="replace")
         a = sys.argv[1:] + [None] * 6
         out = export(a[0], a[1] or "1080p", a[2] or "60", int(a[3] or 30), a[4] or "mp4", a[5] or downloads_dir(),
                      status=print, progress=lambda f: None)
