@@ -424,10 +424,16 @@ def gui():
             buf = ctypes.create_unicode_buffer(1024)
             shell32.DragQueryFileW(w, 0, buf, 1024)
             shell32.DragFinish(w)
-            p = buf.value
-            ui(lambda: set_wallpaper(p))
+            state["dropped"] = buf.value  # no tkinter calls in here: re-entering Tcl crashes Python
             return 0
         return user32.CallWindowProcW(old, h, m, w, l)
+
+    def poll_drop():
+        if state.get("dropped"):
+            set_wallpaper(state.pop("dropped"))
+        root.after(100, poll_drop)
+
+    poll_drop()
 
     new_proc = WNDPROC(proc)
     old = user32.SetWindowLongPtrW(hwnd, -4, ctypes.cast(new_proc, ctypes.c_void_p))  # GWLP_WNDPROC
