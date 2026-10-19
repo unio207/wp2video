@@ -1,0 +1,20 @@
+
+
+==============================================================================
+ffmpeg.exe
+==============================================================================
+
+ffmpeg.exe is FFmpeg 9.0.2, the unmodified "full" Windows build from
+https://www.gyan.dev/ffmpeg/builds/ . It is a separate program that
+wp2video.exe runs; it is not part of wp2video and is not covered by the
+MIT license above.
+
+FFmpeg in this build is licensed under the GNU General Public License,
+version 3 (full text below).
+
+Source code:
+  FFmpeg:          https://github.com/FFmpeg/FFmpeg/commit/946fcce07b
+  Build and libraries used: https://www.gyan.dev/ffmpeg/builds/
+
+==============================================================================
+
