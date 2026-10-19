@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ISS Earth view</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+  video { position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  #hud { position: fixed; left: 3vw; bottom: 4vh; color: #fff; font: 600 2.2vh/1.4 Consolas, monospace;
+         text-shadow: 0 0 6px #000; letter-spacing: .05em; }
+  #hud span { opacity: .7; font-weight: 400; }
+</style>
+</head>
+<body>
+<video src="earth.webm" autoplay muted loop playsinline></video>
+<!-- drawn live by the page, so the recording shows Wallpaper Engine rendering it, not a copied file -->
+<div id="hud">ISS HDEV CAMERA<br><span id="clock"></span></div>
+<script>
+  const clock = document.getElementById("clock");
+  (function tick() {
+    clock.textContent = new Date().toISOString().slice(11, 23) + " UTC";
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>

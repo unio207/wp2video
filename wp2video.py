@@ -287,7 +287,10 @@ def export(path, res, fps_choice, seconds, fmt, out_dir, status, progress):
             real = measure_fps(ff, h, target)
         if real < 2:
             raise RuntimeError("Couldn't capture the wallpaper window.")
-        fps = max([f for f in STD_FPS if f <= min(target, real * 1.05)] or [24])
+        # capped at the target, gfxcapture delivers ~93% of it even when the wallpaper keeps up (60 reads ~56),
+        # so 90% of the target counts as keeping up; before this, every 60 fps export came out at 48
+        limit = target if real >= target * 0.9 else real * 1.05
+        fps = max([f for f in STD_FPS if f <= limit] or [24])
         note = f" (your PC rendered ~{real:.0f} fps)" if fps < target and fps_choice != "Max" else ""
 
         heavy = W * H * fps > 3840 * 2160 * 60  # beyond H.264's limits
