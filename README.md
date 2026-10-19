@@ -20,10 +20,9 @@ wp2video opens the wallpaper in Wallpaper Engine's own renderer, in a window pla
 
 You need **Windows 10 or 11** and **Wallpaper Engine** (from Steam).
 
-There is no published release yet, so for now get `wp2video.zip` by [building it](#build-from-source). It's 100 MB, or 240 MB unzipped, almost all of it `ffmpeg.exe`. Then:
-
-1. Right-click `wp2video.zip`, choose **Extract All...**, then click **Extract**.
-2. Open the extracted `wp2video` folder and double-click **wp2video.exe**.
+1. Go to the [latest release](https://github.com/unio207/wp2video/releases/latest) and click **wp2video.zip** to download it. It's 100 MB, or 240 MB unzipped, almost all of it `ffmpeg.exe`.
+2. Right-click the downloaded zip, choose **Extract All...**, then click **Extract**.
+3. Open the extracted `wp2video` folder and double-click **wp2video.exe**.
    If Windows says *"Windows protected your PC"*, click **More info**, then **Run anyway**. This appears because the exe isn't code-signed.
 
 Keep `wp2video.exe` and `ffmpeg.exe` in the same folder.
