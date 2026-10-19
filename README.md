@@ -16,6 +16,12 @@
 
 wp2video opens the wallpaper in Wallpaper Engine's own renderer, in a window placed off-screen, and records that window with ffmpeg. Scene and web wallpapers keep their animation, effects and particles, because Wallpaper Engine is what draws them.
 
+## Demo
+
+https://github.com/user-attachments/assets/1dfc0594-6821-4d3f-a305-ec61bdf8f49f
+
+A 33 s cut of real recordings: the GUI export above (sped up 3.4x from Export to Done), the file it saved, and the terminal run. Edited in Remotion; no screen in it is mocked.
+
 ## Get it
 
 You need **Windows 10 or 11** and **Wallpaper Engine** (from Steam).
